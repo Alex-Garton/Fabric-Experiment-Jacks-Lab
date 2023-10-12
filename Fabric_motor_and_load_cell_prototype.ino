@@ -17,10 +17,10 @@ const int dirPin = 2;
 float calibration_factor = 607; //defined with calibration code
 float units;
 int incomingByte = Serial.read();
-
+int j = 0;
 
 const int stepsPerRevolution = 5;
-Stepper myStepper(5, 2,3);
+Stepper myStepper = Stepper(stepsPerRevolution, 2,3);
 
 void setup() {
   scale.begin(DAT, CLK);
@@ -36,15 +36,20 @@ void setup() {
 }
 
 void loop() {
- int i=0;
- myStepper.step(1);
- //delay(1000);
- Serial.println("Reading:");
+  for (int i=0; i<4; i++) {
+    myStepper.step(1);
+    //i++;
+  }
+  delay(100);
+}
+  //Serial.println("Reading:");
+/*  j++;
+if (j = 5)  exit(0);
+ 
+
     /*units = scale.get_units();
     Serial.print(units);
     Serial.println(" Newtons");
     if(incomingByte=='0')
       exit(0);
   */
-
-}
