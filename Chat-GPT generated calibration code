@@ -1,0 +1,98 @@
+#include <Stepper.h>
+#include "HX711.h"
+
+// Define HX711 circuit wiring
+const int LOADCELL_DOUT_PIN = 2;
+const int LOADCELL_SCK_PIN = 3;
+
+// Define stepper motor parameters
+const int stepsPerRevolution = 200;
+Stepper stepper(stepsPerRevolution, 8, 9, 10, 11);
+
+// Define calibration settings
+const int numberOfCalibrationPoints = 5; // Number of calibration points
+const int calibrationWeights[] = {50, 100, 150, 200, 250}; // Weights in grams
+
+// Initialize HX711
+HX711 scale;
+
+void setup() {
+  Serial.begin(9600);
+  
+  // Initialize stepper motor
+  stepper.setSpeed(100); // Set the speed of the stepper motor
+  
+  // Initialize HX711
+  scale.begin(LOADCELL_DOUT_PIN, LOADCELL_SCK_PIN);
+  scale.set_scale();
+  scale.tare();
+}
+
+void loop() {
+  Serial.println("Place an empty container on the load cell and press Enter.");
+  waitForEnter();
+  
+  // Get tare value for an empty container
+  long tareValue = getAverageReading();
+
+  Serial.println("Load the container with known weights and press Enter after each weight.");
+  
+  float calibrationFactorSum = 0;
+
+  for (int i = 0; i < numberOfCalibrationPoints; i++) {
+    // Prompt user to add weight
+    Serial.print("Add ");
+    Serial.print(calibrationWeights[i]);
+    Serial.println(" grams weight and press Enter.");
+    waitForEnter();
+
+    // Move stepper motor to apply the weight
+    int stepsToMove = map(calibrationWeights[i], 0, 255, 0, stepsPerRevolution);
+    stepper.step(stepsToMove);
+    
+    // Get the average reading with weight
+    long readingWithWeight = getAverageReading();
+
+    // Calculate calibration factor for this weight
+    float calibrationFactor = float(calibrationWeights[i]) / float(readingWithWeight - tareValue);
+
+    // Accumulate calibration factors
+    calibrationFactorSum += calibrationFactor;
+  }
+
+  // Calculate average calibration factor
+  float averageCalibrationFactor = calibrationFactorSum / numberOfCalibrationPoints;
+
+  // Display the calibration factor
+  Serial.print("Calibration Factor: ");
+  Serial.println(averageCalibrationFactor);
+
+  // Move stepper motor back to the initial position
+  stepper.step(-stepsPerRevolution);
+  
+  // Infinite loop
+  while (true);
+}
+
+long getAverageReading() {
+  const int numReadings = 10;
+  long total = 0;
+
+  for (int i = 0; i < numReadings; i++) {
+    total += scale.get_units();
+    delay(50); // Adjust delay based on your application
+  }
+
+  return total / numReadings;
+}
+
+void waitForEnter() {
+  while (Serial.available() == 0);
+  while (Serial.available() > 0) {
+    char ch = Serial.read();
+    if (ch == '\n' || ch == '\r') {
+      delay(1000); // Give some time to place the weight before taking readings
+      return;
+    }
+  }
+}
