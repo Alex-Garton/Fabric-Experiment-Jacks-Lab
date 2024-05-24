@@ -1,0 +1,33 @@
+#include <HX711.h>
+
+// Define the pins for the HX711 chip
+const int LOADCELL_DOUT_PIN = 3;
+const int LOADCELL_SCK_PIN = 2;
+
+// Create an instance of the HX711 library
+HX711 scale;
+
+void setup() {
+  Serial.begin(9600);
+
+  // Initialize the HX711 library with the appropriate pins and scale factor
+  scale.begin(LOADCELL_DOUT_PIN, LOADCELL_SCK_PIN);
+
+  // Adjust the scale factor based on your load cell's calibration data
+  scale.set_scale(2280.0);
+  scale.tare();  // Reset the scale to zero
+
+  Serial.println("Load cell ready");
+}
+
+void loop() {
+  // Read the load cell value and convert it to units
+  float loadValue = scale.get_units();
+
+  // Print the load value to the serial monitor
+  Serial.print("Load: ");
+  Serial.print(loadValue, 1);
+  Serial.println(" kg");
+
+  delay(500);  // Delay for 500 milliseconds (adjust as needed)
+}
