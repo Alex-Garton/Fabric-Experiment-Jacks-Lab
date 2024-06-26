@@ -32,6 +32,10 @@ void loop() {
     long reading = scale.get_units(10);
     Serial.print("Result: ");
     Serial.println(reading);
+
+    else {
+      Serial.println("Is button pressed?")
+    }
   }
    
 
