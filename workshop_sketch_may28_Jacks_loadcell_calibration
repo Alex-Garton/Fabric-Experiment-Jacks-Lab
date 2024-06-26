@@ -19,23 +19,24 @@ void loop() {
   while (digitalRead(switchPin) == 0) {}
   if (scale.is_ready()){
     scale.set_scale();
-    Serial.println("Tare... remove any weights from the scale.");
-    delay(5000);
+    Serial.println("Press button to tare... remove any weights from the scale.");
+    while (digitalRead(buttonPin) == 0) {}
+    //delay(5000);
     scale.tare();
     Serial.println("Tare done...");
     Serial.print("Place a known weight on the scale...");
     Serial.println("Press button to obtain reading...");
     //delay(5000);
 
+    while (digitalRead(buttonPin) == 0) {}
+
     if (digitalRead(buttonPin) == 1) {
 
     long reading = scale.get_units(10);
     Serial.print("Result: ");
     Serial.println(reading);
-
-    else {
-      Serial.println("Is button pressed?")
     }
+    
   }
    
 
