@@ -17,16 +17,29 @@ void setup() {
 
 void loop() {
   while (digitalRead(switchPin) == 0) {}
+  delay(100);
   if (scale.is_ready()){
     scale.set_scale();
     Serial.println("Press button to tare... remove any weights from the scale.");
-    while (digitalRead(buttonPin) == 0) {}
-    //delay(5000);
+    
+    while (digitalRead(buttonPin) == 0) {}  //holds here until button is pressed
+   
     scale.tare();
     Serial.println("Tare done...");
+    delay(300);
+
+
     Serial.print("Place a known weight on the scale...");
+    delay(1000);
+    Serial.println("Enter weight value: ");
+    
+    /*while (Serial.available() == 0) {}
+    int weight = Serial.parseInt();
+    Serial.print("Weight: ");
+    Serial.print(weight);*/
+    
     Serial.println("Press button to obtain reading...");
-    //delay(5000);
+    
 
     while (digitalRead(buttonPin) == 0) {}
 
