@@ -9,15 +9,19 @@ HX711 scale;
 
 
 void setup() {
+  
+
  Serial.begin(9600);
+
+ //configuring the scale pins
  scale.begin(LOADCELL_DOUT_PIN, LOADCELL_SCK_PIN);
  pinMode(buttonPin, INPUT);
  pinMode(switchPin, INPUT);
-
-Serial.println("Ensure No line ending selection is made!!");}
+}
 void loop() {
+
   
-  while (digitalRead(switchPin) == 0) {}
+  while (digitalRead(switchPin) == 0) {} //holds here until button is pressed
   
   if (scale.is_ready()){
     scale.set_scale();
@@ -25,7 +29,7 @@ void loop() {
     
     while (digitalRead(buttonPin) == 0) {}  //holds here until button is pressed
    
-    scale.tare();
+    scale.tare();  //tare the scale
     Serial.println("Tare done...");
     delay(300);
 
@@ -35,31 +39,30 @@ void loop() {
     Serial.println("Enter weight value: ");
 
     
-    while (Serial.available() == 0) {}
+    while (Serial.available() == 0) {}  //holds here until data is entered to the serial monitor (values, then ENTER key)
     float weight = Serial.parseFloat();
 
-    while (Serial.available() > 0) {
+    while (Serial.available() > 0) {  //clears the serial monitor of extraneous data in the serial input
       Serial.read();
     }
     
     
-    Serial.print("Weight: ");
-    Serial.print(weight, 6);
+    Serial.print("Weight: ");  //prints known weight to the serial monitor
+    Serial.print(weight, 4);
     Serial.println(" g");
     
     Serial.println("Press button to obtain reading...");
     
 
-    while (digitalRead(buttonPin) == 0) {}
+    while (digitalRead(buttonPin) == 0) {}  //holds here until button is pressed
 
-    if (digitalRead(buttonPin) == 1) {
 
-    long reading = scale.get_units(10);
+    long reading = scale.get_units(10);  //force sensor reading is taken
     Serial.print("Reading: ");
     Serial.println(reading);
     }
     
-  }
+  
    
 
   else {
