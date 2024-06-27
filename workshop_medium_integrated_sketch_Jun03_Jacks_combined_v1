@@ -13,7 +13,7 @@ const int LOADCELL_SCK_PIN = 3;
 HX711 scale; 
 
 //calibration factor = (reading)/(known weight)
-//calibration factor = -636045 / 6N = -106007.5 enter this in 'scale.set_scale()' below
+calibration factor = 1 //enter calibration factor from calibration step here
 
 ///////////////////////////////////
 //stepper motor preliminaries
@@ -22,8 +22,11 @@ HX711 scale;
 const int stepPin = 9; 
 const int dirPin = 8;
 const int switchPin= 13;
+const int buttonPin = 12;
 
 ////////////////////////////////
+//logical flow preliminaries
+bool tare_done = false;
 
 void setup() {
   //////////////////////////////
@@ -31,15 +34,15 @@ void setup() {
   Serial.begin(9600);
   scale.begin(LOADCELL_DOUT_PIN, LOADCELL_SCK_PIN);
 
-  scale.set_scale(-106007.5);
-  scale.tare();
+  scale.set_scale(calibration factor);
 
- 
+
   /////////////////////////////
   //set stepper motor output pins
   pinMode(stepPin,OUTPUT); 
   pinMode(dirPin,OUTPUT);
   pinMode(switchPin, INPUT);
+  pinMode(buttonPin, INPUT);
 
 
 }
@@ -48,8 +51,27 @@ void loop() {
   ///////////////////////////
   //first move stepper motor and record how many steps and in what direction
   while (digitalRead(switchPin) == 0) {};
+ 
+  while (digitalRead(buttonPin) == 0) {} //holds here until button is pressed
+  
+  if (scale.is_ready()){
+    scale.set_scale();
+    if (!tare_done){
+    Serial.println("Press button to tare...");
+    
+    while (digitalRead(buttonPin) == 0) {}  //holds here until button is pressed
+   
+    scale.tare();  //tare the scale
+    Serial.println("Tare complete...");
+    tare_done = true;
+    delay(300);
+    }
+
+    else {};
+
+
   const int dir_var = HIGH;
-  digitalWrite(dirPin,dir_var); // Enables the motor to move clockwise (up)
+  digitalWrite(dirPin, dir_var); // Enables the motor to move clockwise (up)
   //200 pulses is one full cycle rotation
   //step size is number of pulses
   const int step_size = 50; //sets the step size
@@ -78,9 +100,9 @@ void loop() {
   Serial.print("\t| average:\t");
   Serial.println(scale.get_units(10),5);
 
-  scale.power_down();
+  /* scale.power_down();
   delay(5000);
-  scale.power_up();
+  scale.power_up(); */
 
 
   digitalWrite(dirPin,LOW); //counterclockwise (down)
