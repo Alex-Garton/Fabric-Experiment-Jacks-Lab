@@ -8,16 +8,20 @@ Created on Wed Jun 26 14:36:44 2024
 import os
 import matplotlib.pyplot as plt
 import numpy as np
- 
 
+## File Library
+    # FORWARD TT "C:\Users\zoech\Desktop\Jacks Reserach 2024\Code\jun26-forwardFunctionalDataSet.txt"
+    
+    # REVERSE TT "C:\Users\zoech\Desktop\Jacks Reserach 2024\Code\jun27-reverseFunctionalDataSet.txt"
+    
+    
 ### CREATING FILE OF RAW DATA
 
 # Input file path
-input_file_path =  r"C:\Users\zoech\Desktop\Jacks Reserach 2024\Code\bigDataSet-june26.txt"
+input_file_path =  r"C:\Users\zoech\Desktop\Jacks Reserach 2024\Code\jun27-reverseFunctionalDataSet.txt"
 
 # Output file path
-output_file_path = r"C:\Users\zoech\Desktop\Jacks Reserach 2024\Code\Z-outputData-june26.txt"
- 
+output_file_path = r"C:\Users\zoech\Desktop\Jacks Reserach 2024\Code\Z-outputData-june27.txt"
 readings = []
 weights = []
 ratios = []
@@ -33,7 +37,10 @@ with open(input_file_path, 'r') as file:
             weight = float(line.split(' ')[1])
             weights.append(weight)
 
-readings.pop(0) # takes off initial tare value
+#readings.pop(0) # takes off initial tare value
+# only needed for initial code readings where serial monitor records a 0 tare 
+# before doing anything else
+
 
 for i in range(len(readings)):
     if weights[i] == 0:
