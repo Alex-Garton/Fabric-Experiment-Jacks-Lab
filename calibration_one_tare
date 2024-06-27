@@ -1,0 +1,56 @@
+#include "HX711.h"
+
+const int LOADCELL_DOUT_PIN = 2;
+const int LOADCELL_SCK_PIN = 3;
+const int switchPin = 13;
+const int buttonPin = 12;
+bool tare_done = false;
+
+const float calibration_factor = -1117.23; // Enter calibration factor from calibration
+
+HX711 scale;
+
+void setup() {
+  Serial.begin(9600);
+  scale.begin(LOADCELL_DOUT_PIN, LOADCELL_SCK_PIN);
+  scale.set_scale(calibration_factor);
+  
+  pinMode(switchPin, INPUT);
+  pinMode(buttonPin, INPUT);
+  
+  Serial.println("Turn on the switch to start...");
+}
+
+void loop() {
+  if (digitalRead(switchPin) == HIGH) {
+    if (!tare_done) {
+  Serial.println("Remove weight from force sensor...");
+  Serial.println("Press button to tare...");
+      
+  while (digitalRead(buttonPin) == 0) {} //holds until button is pressed
+      
+  delay(100);
+  scale.tare();
+  Serial.println("Tare complete.");
+  tare_done = true;
+  Serial.println("Ready for weight measurements.");
+}
+   else {
+  Serial.println("Place known weight on scale...");
+  Serial.println("Press button to obtain reading...");
+  
+    while (digitalRead(buttonPin) == 0) {}
+      // Wait for button press
+        
+    delay(50);    
+  
+    float reading = scale.get_units(10);  // Force sensor reading is taken
+    Serial.print("Reading: ");
+    Serial.print(reading, 4);  // Print with 2 decimal places
+    Serial.println(" g");
+    
+    delay(1000);  // Delay to prevent multiple readings from a single button press
+  }
+  }
+  }
+
