@@ -1,0 +1,49 @@
+#include "HX711.h"
+
+const int LOADCELL_DOUT_PIN = 2;
+const int LOADCELL_SCK_PIN = 3;
+
+const int calibration_factor = 1 //enter calibration factor from calibration
+
+HX711 scale; 
+
+
+void setup() {
+  
+  Serial.begin(9600);
+  scale.begin(LOADCELL_DOUT_PIN, LOADCELL_SCK_PIN);
+
+  
+}
+
+void loop() {
+  
+  while (digitalRead(switchPin) == 0) {} //holds here until switch is turned on is pressed
+
+   if (scale.is_ready()){
+
+    scale.set_scale(calibration_factor);
+    
+    Serial.println("Pressed button to tare...");
+
+    while (digitalRead(buttonPin) == 0) {}
+
+    scale.tare();
+    Serial.println("Tare complete...");
+    delay(300);
+
+    Serial.println("Place known weight on scale...");
+    delay(500);
+    Serial.println("Press button to obtain reading...");
+
+    while (digitalRead(buttonPin) == 0) {}
+
+    long reading = scale.get_units(10);  //force sensor reading is taken
+    Serial.print("Reading: ");
+    Serial.println(reading);
+    }
+
+
+
+}
+}
