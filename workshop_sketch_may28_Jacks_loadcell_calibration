@@ -13,8 +13,8 @@ void setup() {
  scale.begin(LOADCELL_DOUT_PIN, LOADCELL_SCK_PIN);
  pinMode(buttonPin, INPUT);
  pinMode(switchPin, INPUT);
-}
 
+Serial.println("Ensure No line ending selection is made!!");}
 void loop() {
   
   while (digitalRead(switchPin) == 0) {}
@@ -34,11 +34,17 @@ void loop() {
     delay(1000);
     Serial.println("Enter weight value: ");
 
-    Serial.flush();
+    
     while (Serial.available() == 0) {}
     float weight = Serial.parseFloat();
+
+    while (Serial.available() > 0) {
+      Serial.read();
+    }
+    
+    
     Serial.print("Weight: ");
-    Serial.print(weight);
+    Serial.print(weight, 6);
     Serial.println(" g");
     
     Serial.println("Press button to obtain reading...");
