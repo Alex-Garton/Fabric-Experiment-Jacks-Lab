@@ -2,8 +2,11 @@
 
 const int LOADCELL_DOUT_PIN = 2;
 const int LOADCELL_SCK_PIN = 3;
+const int switchPin = 13;
+const int buttonPin = 12;
+bool run_once = true;
 
-const int calibration_factor = 1 //enter calibration factor from calibration
+const int calibration_factor = -1117.23; //enter calibration factor from calibration
 
 HX711 scale; 
 
@@ -23,15 +26,17 @@ void loop() {
    if (scale.is_ready()){
 
     scale.set_scale(calibration_factor);
-    
-    Serial.println("Pressed button to tare...");
-
+        
+        
     while (digitalRead(buttonPin) == 0) {}
 
-    scale.tare();
-    Serial.println("Tare complete...");
-    delay(300);
+    if (run_once == true){
+      scale.tare();
+      Serial.println("Tare complete...");
+      delay(300);}
 
+    run_once = false;
+    
     Serial.println("Place known weight on scale...");
     delay(500);
     Serial.println("Press button to obtain reading...");
@@ -44,6 +49,4 @@ void loop() {
     }
 
 
-
-}
 }
