@@ -25,7 +25,7 @@ const int switchPin= 13;
 const int buttonPin = 12;
 
 ////////////////////////////////
-//logical flow preliminaries
+//tare step preliminaries
 bool tare_done = false;
 
 void setup() {
@@ -55,6 +55,8 @@ void loop() {
   
   if (scale.is_ready()){
     scale.set_scale();
+    //////////////////////////
+    //force sensor tare step, runs one time
     if (!tare_done){
     Serial.println("Press button to tare...");
     
