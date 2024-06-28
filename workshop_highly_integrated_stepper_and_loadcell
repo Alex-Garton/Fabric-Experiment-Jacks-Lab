@@ -9,6 +9,8 @@
 
 const int LOADCELL_DOUT_PIN = 2;
 const int LOADCELL_SCK_PIN = 3;
+const int grams_calibration_factor = 1 //placeholder value
+const int newtons_calibration_factor = grams_calibration_factor * 9800
 
 
 HX711 scale; 
@@ -37,7 +39,7 @@ void setup() {
   Serial.begin(9600);
   scale.begin(LOADCELL_DOUT_PIN, LOADCELL_SCK_PIN);
 
-  scale.set_scale(-106007.5);
+  scale.set_scale(1123.5);
   scale.tare();
 
  
@@ -64,7 +66,7 @@ void loop() {
   //first move stepper motor and record how many steps and in what direction
   
 
-  const int dir_var = HIGH;
+  int dir_var = HIGH;
   digitalWrite(dirPin,dir_var); // Enables the motor to move clockwise (up)
   //200 pulses is one full cycle rotation
   //step size is number of pulses
@@ -75,22 +77,25 @@ void loop() {
 
   
 
-  const int num_steps = 500 //placeholder value; represents number of steps before changing direction
+  int num_steps = 120; //placeholder value; represents number of steps before changing direction
+  int step_size = 5; //sets the step size
   for (int i = 0; i < num_steps; i++) {
 
-    Serial.print("one reading:\t");
-    Serial.print(scale.get_units(),1);
-    Serial.print("\t| average:\t");
-    Serial.println(scale.get_units(10),5);
-    delay(1000); // One second delay
+    Serial.print("\t| one reading:\t");
+    Serial.println(scale.get_units(),1);
+    //Serial.print("\t| average:\t");
+    //float reading = scale.get_units(10);  //force sensor reading is taken
+    //Serial.print("Reading: ");
+    //Serial.println(reading);
+    //delay(10); // One second delay
 
     //this loop executes a single step
-    const int step_size = 4; //sets the step size
+    
     for(int x = 0; x < step_size; x++) {    
       digitalWrite(stepPin,HIGH); 
-      delayMicroseconds(1500); //this sets rotational speed; if too low, motor doesn't have enough torque
+      delayMicroseconds(8000); //this sets rotational speed; if too low, motor doesn't have enough torque
       digitalWrite(stepPin,LOW); 
-      delayMicroseconds(1500); 
+      delayMicroseconds(8000); 
   }
   
   }
@@ -98,66 +103,52 @@ void loop() {
   Serial.print("\t| step size:\t");
   Serial.print(step_size);
   Serial.print("\t| step direction:\t");
-
-  if (dirPin==HIGH) {
-    Serial.print("\t up \t");
+  
+  if (dir_var==HIGH) {
+    Serial.println("\t up \t");
   }
 
-  if (dirPin==LOW) {
-    Serial.print("\t down \t");
+  if (dir_var==LOW) {
+    Serial.println("\t down \t");
   }
-  
+  delay(500);
 
-  digitalWrite(dirPin,LOW); //counterclockwise (down)
-  
-  ////////////////////////////
-  //load cell takes reading, then stepper motor moves; repeats until i = num_steps
+dir_var = LOW;
+digitalWrite(dirPin,dir_var); // Enables the motor to move clockwise (up)
+num_steps = 120; //placeholder value; represents number of steps before changing direction
+step_size = 5; //sets the step size
+ for (int i = 0; i < num_steps; i++) {
 
-  const int num_steps = 500 //placeholder value; represents number of steps before changing direction
-  for (int i = 0; i < num_steps; i++) {
-
-    Serial.print("one reading:\t");
-    Serial.print(scale.get_units(),1);
-    Serial.print("\t| average:\t");
-    Serial.println(scale.get_units(10),5);
-    delay(1000); // One second delay
+    Serial.print("\t| one reading:\t");
+    Serial.println(scale.get_units(),1);
+    //Serial.print("\t| average:\t");
+    //float reading = scale.get_units(10);  //force sensor reading is taken
+    //Serial.print("Reading: ");
+    //Serial.println(reading);
+    //delay(10); // One second delay
 
     //this loop executes a single step
-    const int step_size = 50; //sets the step size
+    
     for(int x = 0; x < step_size; x++) {    
       digitalWrite(stepPin,HIGH); 
-      delayMicroseconds(1500); //this sets rotational speed; if too low, motor doesn't have enough torque
+      delayMicroseconds(8000); //this sets rotational speed; if too low, motor doesn't have enough torque
       digitalWrite(stepPin,LOW); 
-      delayMicroseconds(1500); 
+      delayMicroseconds(8000); 
   }
-  
   
   }
   
   Serial.print("\t| step size:\t");
   Serial.print(step_size);
   Serial.print("\t| step direction:\t");
-
-  if (dirPin==HIGH) {
-    Serial.print("\t up \t");
+  
+  if (dir_var==HIGH) {
+    Serial.println("\t up \t");
   }
 
-  if (dirPin==LOW) {
-    Serial.print("\t down \t");
+  if (dir_var==LOW) {
+    Serial.println("\t down \t");
   }
-  
-  delay(1000);
-  
-  ///////////////////////////////////////////
-  //...then take corresponding load cell reading
-  Serial.print("one reading:\t");
-  Serial.print(scale.get_units(),1);
-  Serial.print("\t| average:\t");
-  Serial.println(scale.get_units(10),5);
-
-  scale.power_down();
-  delay(5000);
-  scale.power_up();
-  
+  delay(500);
 
 }
