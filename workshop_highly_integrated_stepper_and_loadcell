@@ -9,8 +9,8 @@
 
 const int LOADCELL_DOUT_PIN = 2;
 const int LOADCELL_SCK_PIN = 3;
-const int grams_calibration_factor = 1 //placeholder value
-const int newtons_calibration_factor = grams_calibration_factor * 9800
+const int grams_calibration_factor = 1; //placeholder value
+//const int newtons_calibration_factor = grams_calibration_factor * 9800
 
 
 HX711 scale; 
@@ -39,7 +39,7 @@ void setup() {
   Serial.begin(9600);
   scale.begin(LOADCELL_DOUT_PIN, LOADCELL_SCK_PIN);
 
-  scale.set_scale(1123.5);
+  scale.set_scale(-1123.5);
   scale.tare();
 
  
@@ -77,8 +77,8 @@ void loop() {
 
   
 
-  int num_steps = 120; //placeholder value; represents number of steps before changing direction
-  int step_size = 5; //sets the step size
+  int num_steps = 20; //placeholder value; represents number of steps before changing direction and number of readings per direction
+  int step_size = 10; //sets the step size
   for (int i = 0; i < num_steps; i++) {
 
     Serial.print("\t| one reading:\t");
@@ -93,11 +93,11 @@ void loop() {
     
     for(int x = 0; x < step_size; x++) {    
       digitalWrite(stepPin,HIGH); 
-      delayMicroseconds(8000); //this sets rotational speed; if too low, motor doesn't have enough torque
+      delayMicroseconds(6000); //this sets rotational speed; if too low, motor doesn't have enough torque
       digitalWrite(stepPin,LOW); 
-      delayMicroseconds(8000); 
-  }
+      delayMicroseconds(6000); 
   
+    }
   }
   
   Serial.print("\t| step size:\t");
@@ -115,11 +115,11 @@ void loop() {
 
 dir_var = LOW;
 digitalWrite(dirPin,dir_var); // Enables the motor to move clockwise (up)
-num_steps = 120; //placeholder value; represents number of steps before changing direction
-step_size = 5; //sets the step size
+num_steps = 20; //placeholder value; represents number of steps before changing direction
+step_size = 10; //sets the step size
  for (int i = 0; i < num_steps; i++) {
 
-    Serial.print("\t| one reading:\t");
+    Serial.println("\t| one reading:\t");
     Serial.println(scale.get_units(),1);
     //Serial.print("\t| average:\t");
     //float reading = scale.get_units(10);  //force sensor reading is taken
@@ -131,9 +131,9 @@ step_size = 5; //sets the step size
     
     for(int x = 0; x < step_size; x++) {    
       digitalWrite(stepPin,HIGH); 
-      delayMicroseconds(8000); //this sets rotational speed; if too low, motor doesn't have enough torque
+      delayMicroseconds(4800); //this sets rotational speed; if too low, motor doesn't have enough torque
       digitalWrite(stepPin,LOW); 
-      delayMicroseconds(8000); 
+      delayMicroseconds(4800); 
   }
   
   }
