@@ -10,18 +10,23 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 ## File Library
+    # Old Callibration (load cell attached at one screw) (WEEK 1)
     # FORWARD TT "C:\Users\zoech\Desktop\Jacks Reserach 2024\Code\jun26-forwardFunctionalDataSet.txt"
     
     # REVERSE TT "C:\Users\zoech\Desktop\Jacks Reserach 2024\Code\jun27-reverseFunctionalDataSet.txt"
+    
+    # New Callibration (load cell attached at two screws) (WEEK 2)
+    # FORWARD TT "C:\Users\zoech\Desktop\Jacks Reserach 2024\Code\Jul1 Calibration two screws in L bracket positive cal factor.txt"
+    
+    # REVERSE TT "C:\Users\zoech\Desktop\Jacks Reserach 2024\Code\Jul1 Calibration two screws in L bracket negative cal factor.txt"
     
     
 ### CREATING FILE OF RAW DATA
 
 # Input file path
-input_file_path =  r"C:\Users\zoech\Desktop\Jacks Reserach 2024\Code\jun27-reverseFunctionalDataSet.txt"
-
+input_file_path =  r"C:\Users\zoech\Desktop\Jacks Reserach 2024\Code\Jul1 Calibration two screws in L bracket negative cal factor.txt"
 # Output file path
-output_file_path = r"C:\Users\zoech\Desktop\Jacks Reserach 2024\Code\Z-outputData-june27.txt"
+output_file_path = r"C:\Users\zoech\Desktop\Jacks Reserach 2024\Code\Z-outputData3-jul1.txt"
 readings = []
 weights = []
 ratios = []
@@ -31,7 +36,7 @@ with open(input_file_path, 'r') as file:
     for line in file:
         line = line.strip()
         if line.startswith('Reading:'):
-            reading = int(line.split(':')[1])
+            reading = float(line.split(':')[1])
             readings.append(reading)
         elif line.startswith('Weight:'):
             weight = float(line.split(' ')[1])
@@ -51,7 +56,7 @@ for i in range(len(readings)):
  
  
 # Write data to the output file
-with open(output_file_path, 'w') as outfile:
+with open(output_file_path, 'x') as outfile:
     outfile.write("Reading\t     Weight (g)\t     Ratios\n")
    
     # Set number of rows
