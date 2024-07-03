@@ -1,0 +1,46 @@
+Calibration Factor: -1123
+Flip switch to begin program. 
+
+	| step size: 	10	| step direction: 	up
+	| one reading:	-0.0
+	| one reading:	-0.0
+	| one reading:	-0.0
+	| one reading:	-0.0
+	| one reading:	-0.0
+	| one reading:	-0.1
+	| one reading:	-0.0
+	| one reading:	-0.0
+	| one reading:	-0.0
+	| one reading:	-0.0
+	| one reading:	-0.0
+	| one reading:	-0.0
+	| one reading:	-0.1
+	| one reading:	-0.1
+	| one reading:	-0.0
+	| one reading:	-0.0
+	| one reading:	-0.0
+	| one reading:	-0.0
+	| one reading:	-0.1
+	| one reading:	-0.1
+
+	| step size: 	10	| step direction: 	down
+	| one reading:	-0.1
+	| one reading:	-0.1
+	| one reading:	-0.0
+	| one reading:	-0.1
+	| one reading:	-0.1
+	| one reading:	-0.1
+	| one reading:	-0.1
+	| one reading:	-0.1
+	| one reading:	-0.1
+	| one reading:	-0.1
+	| one reading:	-0.1
+	| one reading:	-0.0
+	| one reading:	-0.0
+	| one reading:	-0.1
+	| one reading:	-0.0
+	| one reading:	-0.1
+	| one reading:	-0.0
+	| one reading:	0.0
+	| one reading:	-0.0
+	| one reading:	-0.0
