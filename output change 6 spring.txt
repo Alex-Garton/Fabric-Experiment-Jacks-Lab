@@ -1,0 +1,267 @@
+Force Sensor Tared...
+Calibration Factor: -1123
+Flip switch to begin program... 
+
+	| step size: 	10	| step direction: 	up
+	| one reading:	-3.3
+	| one reading:	-2.6
+	| one reading:	-3.7
+	| one reading:	-6.2
+	| one reading:	-13.6
+	| one reading:	-17.3
+	| one reading:	-25.0
+	| one reading:	-28.3
+	| one reading:	-31.7
+	| one reading:	-38.7
+	| one reading:	-42.2
+	| one reading:	-46.0
+	| one reading:	-53.1
+	| one reading:	-56.7
+	| one reading:	-63.6
+	| one reading:	-67.2
+	| one reading:	-70.7
+	| one reading:	-77.8
+	| one reading:	-81.2
+	| one reading:	-87.8
+
+	| step size: 	10	| step direction: 	down
+	| one reading:	-99.9
+	| one reading:	-99.7
+	| one reading:	-99.4
+	| one reading:	-93.7
+	| one reading:	-89.6
+	| one reading:	-82.3
+	| one reading:	-78.6
+	| one reading:	-75.0
+	| one reading:	-68.3
+	| one reading:	-64.7
+	| one reading:	-57.4
+	| one reading:	-53.8
+	| one reading:	-50.2
+	| one reading:	-42.5
+	| one reading:	-38.8
+	| one reading:	-32.1
+	| one reading:	-28.7
+	| one reading:	-25.5
+	| one reading:	-18.0
+	| one reading:	-14.6
+
+	| step size: 	10	| step direction: 	up
+	| one reading:	0.1
+	| one reading:	-0.3
+	| one reading:	-1.7
+	| one reading:	-4.7
+	| one reading:	-12.3
+	| one reading:	-16.0
+	| one reading:	-23.4
+	| one reading:	-27.0
+	| one reading:	-30.7
+	| one reading:	-37.7
+	| one reading:	-41.4
+	| one reading:	-45.2
+	| one reading:	-52.6
+	| one reading:	-56.0
+	| one reading:	-63.1
+	| one reading:	-66.7
+	| one reading:	-70.2
+	| one reading:	-77.0
+	| one reading:	-80.5
+	| one reading:	-87.6
+
+	| step size: 	10	| step direction: 	down
+	| one reading:	-98.7
+	| one reading:	-98.8
+	| one reading:	-98.7
+	| one reading:	-93.3
+	| one reading:	-89.4
+	| one reading:	-82.2
+	| one reading:	-78.2
+	| one reading:	-74.7
+	| one reading:	-67.8
+	| one reading:	-64.3
+	| one reading:	-57.2
+	| one reading:	-53.5
+	| one reading:	-49.9
+	| one reading:	-41.9
+	| one reading:	-38.4
+	| one reading:	-35.3
+	| one reading:	-28.1
+	| one reading:	-24.6
+	| one reading:	-17.6
+	| one reading:	-13.7
+
+	| step size: 	10	| step direction: 	up
+	| one reading:	-1.4
+	| one reading:	-1.5
+	| one reading:	-1.9
+	| one reading:	-4.5
+	| one reading:	-11.9
+	| one reading:	-15.4
+	| one reading:	-19.1
+	| one reading:	-26.6
+	| one reading:	-30.5
+	| one reading:	-37.8
+	| one reading:	-41.5
+	| one reading:	-45.3
+	| one reading:	-52.6
+	| one reading:	-56.1
+	| one reading:	-63.2
+	| one reading:	-66.8
+	| one reading:	-70.3
+	| one reading:	-77.1
+	| one reading:	-80.6
+	| one reading:	-84.1
+
+	| step size: 	10	| step direction: 	down
+	| one reading:	-98.9
+	| one reading:	-98.9
+	| one reading:	-98.8
+	| one reading:	-93.1
+	| one reading:	-89.3
+	| one reading:	-82.1
+	| one reading:	-78.4
+	| one reading:	-74.8
+	| one reading:	-68.0
+	| one reading:	-64.4
+	| one reading:	-60.8
+	| one reading:	-53.5
+	| one reading:	-49.9
+	| one reading:	-42.6
+	| one reading:	-38.9
+	| one reading:	-35.7
+	| one reading:	-29.0
+	| one reading:	-25.6
+	| one reading:	-17.9
+	| one reading:	-14.3
+
+	| step size: 	10	| step direction: 	up
+	| one reading:	0.0
+	| one reading:	-0.1
+	| one reading:	-2.1
+	| one reading:	-5.1
+	| one reading:	-12.5
+	| one reading:	-16.3
+	| one reading:	-20.2
+	| one reading:	-27.6
+	| one reading:	-31.3
+	| one reading:	-38.4
+	| one reading:	-42.2
+	| one reading:	-46.0
+	| one reading:	-53.3
+	| one reading:	-56.8
+	| one reading:	-60.4
+	| one reading:	-67.4
+	| one reading:	-70.9
+	| one reading:	-77.7
+	| one reading:	-81.2
+	| one reading:	-84.6
+
+	| step size: 	10	| step direction: 	down
+	| one reading:	-99.0
+	| one reading:	-98.7
+	| one reading:	-98.4
+	| one reading:	-92.7
+	| one reading:	-89.1
+	| one reading:	-85.7
+	| one reading:	-78.3
+	| one reading:	-74.6
+	| one reading:	-67.7
+	| one reading:	-64.2
+	| one reading:	-60.7
+	| one reading:	-53.3
+	| one reading:	-49.8
+	| one reading:	-42.4
+	| one reading:	-38.7
+	| one reading:	-35.4
+	| one reading:	-28.6
+	| one reading:	-25.4
+	| one reading:	-22.0
+	| one reading:	-14.3
+
+	| step size: 	10	| step direction: 	up
+	| one reading:	-2.0
+	| one reading:	-1.5
+	| one reading:	-2.6
+	| one reading:	-5.3
+	| one reading:	-12.7
+	| one reading:	-16.5
+	| one reading:	-20.4
+	| one reading:	-27.6
+	| one reading:	-31.4
+	| one reading:	-35.0
+	| one reading:	-42.2
+	| one reading:	-46.0
+	| one reading:	-53.5
+	| one reading:	-57.2
+	| one reading:	-60.7
+	| one reading:	-67.7
+	| one reading:	-71.2
+	| one reading:	-78.2
+	| one reading:	-81.8
+	| one reading:	-85.2
+
+	| step size: 	10	| step direction: 	down
+	| one reading:	-99.5
+	| one reading:	-99.1
+	| one reading:	-98.9
+	| one reading:	-93.0
+	| one reading:	-89.1
+	| one reading:	-85.5
+	| one reading:	-78.3
+	| one reading:	-74.7
+	| one reading:	-67.8
+	| one reading:	-64.3
+	| one reading:	-60.6
+	| one reading:	-53.4
+	| one reading:	-49.9
+	| one reading:	-42.3
+	| one reading:	-38.2
+	| one reading:	-34.8
+	| one reading:	-28.3
+	| one reading:	-24.9
+	| one reading:	-21.8
+	| one reading:	-13.9
+
+	| step size: 	10	| step direction: 	up
+	| one reading:	0.3
+	| one reading:	0.4
+	| one reading:	-1.8
+	| one reading:	-5.1
+	| one reading:	-12.5
+	| one reading:	-16.1
+	| one reading:	-19.9
+	| one reading:	-27.2
+	| one reading:	-31.1
+	| one reading:	-34.8
+	| one reading:	-41.9
+	| one reading:	-45.8
+	| one reading:	-53.1
+	| one reading:	-56.7
+	| one reading:	-60.2
+	| one reading:	-67.3
+	| one reading:	-70.8
+	| one reading:	-77.7
+	| one reading:	-81.3
+	| one reading:	-84.8
+
+	| step size: 	10	| step direction: 	down
+	| one reading:	-99.2
+	| one reading:	-99.3
+	| one reading:	-98.5
+	| one reading:	-90.7
+	| one reading:	-87.1
+	| one reading:	-83.6
+	| one reading:	-76.8
+	| one reading:	-73.5
+	| one reading:	-67.7
+	| one reading:	-64.4
+	| one reading:	-60.6
+	| one reading:	-53.4
+	| one reading:	-49.9
+	| one reading:	-46.3
+	| one reading:	-38.9
+	| one reading:	-35.4
+	| one reading:	-28.9
+	| one reading:	-25.5
+	| one reading:	-21.8
+	| one reading:	-14.6
