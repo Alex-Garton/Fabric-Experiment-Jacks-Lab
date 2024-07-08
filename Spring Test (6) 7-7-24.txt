@@ -1,0 +1,179 @@
+Force Sensor Tared...
+Calibration Factor: -1123
+Flip switch to begin program... 
+
+	| step size: 	10	| step direction: 	up
+	| one reading:	1.4
+	| one reading:	2.7
+	| one reading:	3.9
+	| one reading:	1.9
+	| one reading:	1.0
+	| one reading:	-0.3
+	| one reading:	-2.2
+	| one reading:	-3.2
+	| one reading:	-4.3
+	| one reading:	-5.5
+	| one reading:	-6.6
+	| one reading:	-7.6
+	| one reading:	-9.2
+	| one reading:	-10.4
+	| one reading:	-12.0
+	| one reading:	-12.9
+	| one reading:	-13.9
+	| one reading:	-15.4
+	| one reading:	-16.3
+	| one reading:	-17.4
+
+	| step size: 	10	| step direction: 	up
+	| one reading:	-19.7
+	| one reading:	-20.4
+	| one reading:	-21.7
+	| one reading:	-22.8
+	| one reading:	-24.5
+	| one reading:	-25.5
+	| one reading:	-26.7
+	| one reading:	-28.3
+	| one reading:	-29.3
+	| one reading:	-30.4
+	| one reading:	-32.1
+	| one reading:	-33.1
+	| one reading:	-34.0
+	| one reading:	-35.6
+	| one reading:	-36.7
+	| one reading:	-37.7
+	| one reading:	-39.2
+	| one reading:	-40.4
+	| one reading:	-41.8
+	| one reading:	-42.9
+
+	| step size: 	10	| step direction: 	up
+	| one reading:	-45.4
+	| one reading:	-45.6
+	| one reading:	-47.2
+	| one reading:	-48.2
+	| one reading:	-49.1
+	| one reading:	-51.1
+	| one reading:	-51.9
+	| one reading:	-52.8
+	| one reading:	-54.3
+	| one reading:	-55.6
+	| one reading:	-56.7
+	| one reading:	-58.4
+	| one reading:	-59.3
+	| one reading:	-60.5
+	| one reading:	-61.9
+	| one reading:	-63.0
+	| one reading:	-63.9
+	| one reading:	-65.6
+	| one reading:	-66.6
+	| one reading:	-67.9
+
+	| step size: 	10	| step direction: 	up
+	| one reading:	-69.8
+	| one reading:	-70.2
+	| one reading:	-71.5
+	| one reading:	-73.1
+	| one reading:	-74.1
+	| one reading:	-74.8
+	| one reading:	-76.6
+	| one reading:	-77.8
+	| one reading:	-78.9
+	| one reading:	-80.4
+	| one reading:	-81.6
+	| one reading:	-82.6
+	| one reading:	-84.4
+	| one reading:	-85.4
+	| one reading:	-86.4
+	| one reading:	-87.9
+	| one reading:	-88.9
+	| one reading:	-90.1
+	| one reading:	-91.5
+	| one reading:	-92.5
+
+	| step size: 	10	| step direction: 	up
+	| one reading:	-95.2
+	| one reading:	-95.2
+	| one reading:	-95.7
+	| one reading:	-96.7
+	| one reading:	-98.6
+	| one reading:	-99.7
+	| one reading:	-100.9
+	| one reading:	-102.6
+	| one reading:	-103.8
+	| one reading:	-104.7
+	| one reading:	-106.6
+	| one reading:	-107.8
+	| one reading:	-108.9
+	| one reading:	-110.4
+	| one reading:	-111.5
+	| one reading:	-112.6
+	| one reading:	-114.1
+	| one reading:	-115.2
+	| one reading:	-116.2
+	| one reading:	-117.5
+
+	| step size: 	10	| step direction: 	up
+	| one reading:	-119.6
+	| one reading:	-119.7
+	| one reading:	-120.8
+	| one reading:	-121.9
+	| one reading:	-122.9
+	| one reading:	-124.7
+	| one reading:	-125.8
+	| one reading:	-127.1
+	| one reading:	-129.0
+	| one reading:	-130.0
+	| one reading:	-131.1
+	| one reading:	-133.1
+	| one reading:	-134.1
+	| one reading:	-135.2
+	| one reading:	-136.7
+	| one reading:	-137.6
+	| one reading:	-138.6
+	| one reading:	-140.0
+	| one reading:	-141.0
+	| one reading:	-142.0
+
+	| step size: 	10	| step direction: 	up
+	| one reading:	-145.1
+	| one reading:	-145.0
+	| one reading:	-145.3
+	| one reading:	-146.9
+	| one reading:	-147.9
+	| one reading:	-149.1
+	| one reading:	-151.0
+	| one reading:	-152.1
+	| one reading:	-153.2
+	| one reading:	-155.0
+	| one reading:	-156.1
+	| one reading:	-157.1
+	| one reading:	-158.8
+	| one reading:	-159.9
+	| one reading:	-161.0
+	| one reading:	-162.5
+	| one reading:	-163.4
+	| one reading:	-164.5
+	| one reading:	-165.9
+	| one reading:	-166.8
+
+	| step size: 	10	| step direction: 	up
+	| one reading:	-169.5
+	| one reading:	-169.5
+	| one reading:	-170.2
+	| one reading:	-171.3
+	| one reading:	-172.9
+	| one reading:	-174.1
+	| one reading:	-175.2
+	| one reading:	-176.8
+	| one reading:	-177.9
+	| one reading:	-179.1
+	| one reading:	-180.7
+	| one reading:	-181.8
+	| one reading:	-182.8
+	| one reading:	-184.5
+	| one reading:	-185.5
+	| one reading:	-186.7
+	| one reading:	-188.3
+	| one reading:	-189.2
+	| one reading:	-190.2
+	| one reading:	-191.8
