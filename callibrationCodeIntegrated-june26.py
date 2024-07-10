@@ -26,7 +26,7 @@ import numpy as np
 
 # Input file path
 input_file_path =  r"C:\Users\zoech\Desktop\Jacks Reserach 2024\Code\Callibration Code\Jul1 Calibration two screws in L bracket positive cal factor.txt"
-output_file_path = r"C:\Users\zoech\Desktop\Jacks Reserach 2024\Code\Z-outputData1-jul1.txt"
+output_file_path = 
 readings = []
 weights = []
 ratios = []
