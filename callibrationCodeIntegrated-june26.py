@@ -24,9 +24,8 @@ import numpy as np
 ### CREATING FILE OF RAW DATA
 
 # Input file path
-input_file_path =  r"C:\Users\zoech\Desktop\Jacks Reserach 2024\Code\Jul1 Calibration two screws in L bracket negative cal factor.txt"
-# Output file path
-output_file_path = r"C:\Users\zoech\Desktop\Jacks Reserach 2024\Code\Z-outputData3-jul1.txt"
+input_file_path =  r"C:\Users\zoech\Desktop\Jacks Reserach 2024\Code\Callibration Code\Jul1 Calibration two screws in L bracket positive cal factor.txt"
+output_file_path = r"C:\Users\zoech\Desktop\Jacks Reserach 2024\Code\Z-outputData1-jul1.txt"
 readings = []
 weights = []
 ratios = []
@@ -42,11 +41,6 @@ with open(input_file_path, 'r') as file:
             weight = float(line.split(' ')[1])
             weights.append(weight)
 
-#readings.pop(0) # takes off initial tare value
-# only needed for initial code readings where serial monitor records a 0 tare 
-# before doing anything else
-
-
 for i in range(len(readings)):
     if weights[i] == 0:
         ratio = 0
@@ -56,22 +50,22 @@ for i in range(len(readings)):
  
  
 # Write data to the output file
-with open(output_file_path, 'x') as outfile:
-    outfile.write("Reading\t     Weight (g)\t     Ratios\n")
+# with open(output_file_path, 'x') as outfile:
+#     outfile.write("Reading\t     Weight (g)\t     Ratios\n")
    
-    # Set number of rows
-    max_rows = max(len(readings), len(weights),len(ratios))
+#     # Set number of rows
+#     max_rows = max(len(readings), len(weights),len(ratios))
    
-    for i in range(max_rows):
-        reading = readings[i] if i < len(readings) else ''
-        weight = weights[i] if i < len(weights) else ''
-        ratio = ratios[i] if i < len(ratios) else ''
-        outfile.write(f"{reading}\t     {weight}\t     {ratio}\n"   )
+#     for i in range(max_rows):
+#         reading = readings[i] if i < len(readings) else ''
+#         weight = weights[i] if i < len(weights) else ''
+#         ratio = ratios[i] if i < len(ratios) else ''
+#         outfile.write(f"{reading}\t     {weight}\t     {ratio}\n"   )
     
-    avg_ratio = sum(ratios)/(len(ratios)-1)
-    outfile.write(f"\nAverage Ratio: {avg_ratio:.5f}\n")
+#     avg_ratio = sum(ratios)/(len(ratios)-1)
+#     outfile.write(f"\nAverage Ratio: {avg_ratio:.5f}\n")
  
-print(f"Data has been written to {output_file_path}")
+# print(f"Data has been written to {output_file_path}")
  
 
 ### CREATING GRAPH WITH INPUT DATA
@@ -103,11 +97,12 @@ correlation_matrix = np.corrcoef(x, y)
 correlation_coefficient = correlation_matrix[0, 1]
  
 # Adding standard deviation and correlation coefficient information to the plot
-plt.text(200, 200000, f'Standard Deviation: {std_dev:.2f}', fontsize=12)
-plt.text(200, 180000, f'Correlation Coefficient (r): {correlation_coefficient:.2f}', fontsize=12)
- 
+plt.text(0.95, 0.05, f'Standard Deviation: {std_dev:.2f}\nCorrelation Coefficient (r): {correlation_coefficient:.2f}\nCalibration Factor: {coefficients[0]:.2f}', 
+         horizontalalignment='right', verticalalignment='bottom', transform=plt.gca().transAxes,
+         bbox=dict(facecolor='yellow', alpha=0.5))
+
 # Labeling axes and title
-plt.xlabel('Known Weight')
+plt.xlabel('Known Weight (g)')
 plt.ylabel('TT Weight')
 plt.title('Known Weight vs. TT Weight with Line of Best Fit')
 plt.legend()
@@ -115,5 +110,4 @@ plt.legend()
 # Showing the plot
 plt.show()
  
-### testing a recommit, seeing if it saves :) 
  
