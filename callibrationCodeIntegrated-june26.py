@@ -10,12 +10,13 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 ''' file library '''
-    # Old Callibration (load cell attached at one screw) (WEEK 1)
+
+    # Old Calibration (load cell attached at one screw) (WEEK 1)
     # FORWARD TT "C:\Users\zoech\Desktop\Jacks Reserach 2024\Code\jun26-forwardFunctionalDataSet.txt"
     
     # REVERSE TT "C:\Users\zoech\Desktop\Jacks Reserach 2024\Code\jun27-reverseFunctionalDataSet.txt"
     
-    # New Callibration (load cell attached at two screws) (WEEK 2)
+    # New Calibration (load cell attached at two screws) (WEEK 2)
     # FORWARD TT "C:\Users\zoech\Desktop\Jacks Reserach 2024\Code\Jul1 Calibration two screws in L bracket positive cal factor.txt"
     
     # REVERSE TT "C:\Users\zoech\Desktop\Jacks Reserach 2024\Code\Jul1 Calibration two screws in L bracket negative cal factor.txt"
