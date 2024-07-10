@@ -14,7 +14,7 @@ true_w = input("Please enter the scale-measured weight of the object: ")
 
 '''Opening Input File'''
 
-input_file_path =  r"C:\Users\zoech\Desktop\Jacks Reserach 2024\Code\Testing TT as a Scale\weight accuracy test 3 (199.697g).txt"
+input_file_path =  
 readings = []
  
 # Read the data
