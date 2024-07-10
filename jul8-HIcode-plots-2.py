@@ -10,15 +10,14 @@ import matplotlib.pyplot as plt
 import numpy as np
 import re
 
+''' relevant files '''
 #"C:\Users\zoech\Desktop\Jacks Reserach 2024\Code\HI Code\output change 1.txt"
 #"C:\Users\zoech\Desktop\Jacks Reserach 2024\Code\HI Code\output change 3.txt"
 # "C:\Users\zoech\Desktop\Jacks Reserach 2024\Code\HI Code\output change 4.txt"
 # r"C:\Users\zoech\Desktop\Jacks Reserach 2024\Code\HI Code\output change 6 spring.txt"
 
-# Input file path
+''' input file path '''
 input_file_path = r"C:\Users\zoech\Desktop\Jacks Reserach 2024\Code\HI Code\7-7-24 fabric 5.txt"
-
-#sample = input("What are we measuring?: ")
 
 # Initialize lists and variables
 calibrated_ws = []
@@ -30,7 +29,8 @@ loops = []  # To store each loop data
 current_loop = {'x': [], 'y': []}
 previous_direction = None  # To track the previous direction
 
-# Read input file
+
+''' reading the input file '''
 with open(input_file_path, 'r') as file:
     for line in file:
         line = line.strip()
@@ -71,6 +71,8 @@ with open(input_file_path, 'r') as file:
 if current_loop['x']:
     loops.append(current_loop)
 
+
+''' plotting '''
 # Plot each loop with a different color
 plt.figure(figsize=(10, 6))
 colors = plt.cm.viridis(np.linspace(0, 1, len(loops)))
