@@ -8,11 +8,13 @@ import os
 import matplotlib.pyplot as plt
 import numpy as np
 
+true_w = input("Please enter the scale-measured weight of the object: ")
+
 # code for testing the TT as a scale
 
 '''Opening Input File'''
 
-input_file_path =  r"C:\Users\zoech\Desktop\Jacks Reserach 2024\Code\weight accuracy test 2 (19.951g).txt"
+input_file_path =  r"C:\Users\zoech\Desktop\Jacks Reserach 2024\Code\Testing TT as a Scale\weight accuracy test 3 (199.697g).txt"
 readings = []
  
 # Read the data
@@ -25,6 +27,7 @@ with open(input_file_path, 'r') as file:
         
        
 '''Creating Plot'''
+
 # Reading Number
 x = [i for i in range(1, len(readings) + 1)]
 
@@ -34,12 +37,11 @@ y = readings
 # Plotting the points
 plt.plot(x, y, 'o', label='Data points')
 
-# Setting Limits (makes it so it isn't scaled by default)
-plt.xlim(0, 25)
-plt.ylim(0, 110)
-
 # Calculate Average
 avg = sum(readings)/len(readings)
+
+# Setting y-axis
+plt.ylim(0, 2*avg)
 
 # Fitting a linear regression line
 coefficients = np.polyfit(x, y, 1)
@@ -53,10 +55,9 @@ plt.plot(x, y_fit, label=f'Line of best fit: y = {coefficients[0]:.2f}x + {coeff
 residuals = y - y_fit
 std_dev = np.std(residuals)
  
-# Adding standard deviation and correlation coefficient information to the plot
-plt.text(7, 80, f'Standard Deviation: {std_dev:.5f}', fontsize=12)
-plt.text(7, 70, f'Average: {avg:.5f} g', fontsize=12)
-plt.text(7, 60, f'True Weight: {"19.951 g"}', fontsize=12)
+plt.text(0.95, 0.2, f'Standard Deviation: {std_dev:.5f}\nAverage: {avg:.5f} g\nTrue Weight: {true_w}', 
+         horizontalalignment='right', verticalalignment='bottom', transform=plt.gca().transAxes,
+         fontsize=12, bbox=dict(facecolor='yellow', alpha=0.5))
 
 # Labeling axes and title
 plt.xlabel('Reading Number')
@@ -67,17 +68,4 @@ plt.legend()
 # Showing the plot
 plt.show()
 
-# print(readings)
-# print(x)
-# print(std_dev)
-# print(correlation_coefficient)
-# print(avg)
     
-# PSUEDOCODE
-# take input file and parse data into useful pieces
-# need to have on the x axis the number of weights taken
-# y axis is the tt reading
-
-# from that we need to create a standard deviation and average (print both onto plot)
-# idea == should create a flat line w slope 1
-#     no output file needed? 
