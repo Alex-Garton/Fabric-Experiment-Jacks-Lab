@@ -1,0 +1,52 @@
+                                                        
+
+Enter number of steps: 1150
+Enter displacement (cm): 28.70
+                                                                        
+
+Enter number of steps: 1100
+Enter displacement (cm): 27.50
+            
+
+Enter number of steps: 1000
+Enter displacement (cm): 25.00
+                                                
+
+Enter number of steps: 900
+Enter displacement (cm): 22.50
+                                                                     
+
+Enter number of steps: 800
+Enter displacement (cm): 20.00
+                                                                    
+
+Enter number of steps: 700
+Enter displacement (cm): 17.50
+                                                                       
+
+Enter number of steps: 600
+Enter displacement (cm): 15.00
+                                                           
+
+Enter number of steps: 500
+Enter displacement (cm): 12.50
+                                                                        
+
+Enter number of steps: 400
+Enter displacement (cm): 10.00
+                                                                         
+
+Enter number of steps: 300
+Enter displacement (cm): 7.50
+                                                                    
+
+Enter number of steps: 200
+Enter displacement (cm): 5.00
+                                                                      
+
+Enter number of steps: 100
+Enter displacement (cm): 2.50
+            
+
+Enter number of steps: 50
+Enter displacement (cm): 1.20
